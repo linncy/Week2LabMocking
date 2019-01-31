@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import service.City;
+import service.Salary;
 
 public class Util {
 	
@@ -17,6 +18,18 @@ public class Util {
 		
 		for(String aCity: cities) {
 			if(aCity.equals("Edmonton")) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public int filterSalary50K(Salary salary) {
+		int count=0;
+		ArrayList<Integer> salaries = new ArrayList<Integer>();
+		salaries=salary.returnSalaries();
+		for(int item: salaries) {
+			if(item>50000) {
 				count++;
 			}
 		}

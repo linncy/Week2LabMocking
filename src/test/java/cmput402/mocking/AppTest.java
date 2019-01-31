@@ -4,6 +4,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import stub.CityStub;
+import stub.SalaryStub;
 
 /**
  * Unit test for simple App.
@@ -37,5 +38,11 @@ public class AppTest
     	Util util = new Util();
     	CityStub stub = new CityStub();
     	assert(3==util.filterEdmonton(stub));
+    }
+    
+    public void testFilterSalary50k() {
+    	Util util = new Util();
+    	SalaryStub salarystub = new SalaryStub();
+    	assert(5==util.filterSalary50K(salarystub));
     }
 }
