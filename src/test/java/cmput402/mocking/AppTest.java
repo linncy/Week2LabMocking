@@ -12,6 +12,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import service.City;
+import service.Salary;
 import stub.CityStub;
 import stub.SalaryStub;
 
@@ -78,5 +79,18 @@ public class AppTest
     	
     	assert(1==util.filterEdmonton(mockCity));
     	verify(mockCity,times(2)).listCities(); // You should specify how many times
+    }
+    
+    public void testfilterSalary50KMockito() {
+    	Util util = new Util();
+    	Salary mockSalary = mock(Salary.class);
+    	ArrayList<Integer> listSalaries = new ArrayList<Integer>();
+    	listSalaries.add(50000);
+    	listSalaries.add(60000);
+    	listSalaries.add(70000);
+    	listSalaries.add(80000);
+    	listSalaries.add(90000);
+    	when(mockSalary.returnSalaries()).thenReturn(listSalaries);
+    	assert(4==util.filterSalary50K(mockSalary));
     }
 }
